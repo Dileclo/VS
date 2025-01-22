@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
   </head>
   <script>
@@ -24,9 +24,7 @@
   <body>
     <div class="flex flex-col p-5 h-full bg-gray-100">
       <div class="flex flex-col h-screen">
-
-
-        <div class="flex mont text-gray-600 text-2xl pt mx-auto text-center">
+        <div class="flex cormor text-gray-600 text-2xl pt mx-auto text-center">
           ПРИГЛАШЕНИЕ <br />
           НА СВАДЬБУ
         </div>
@@ -34,6 +32,7 @@
         <div
           data-aos="fade-right"
           data-aos-delay="450"
+          data-aos-duration="1000"
           class="flex pinyon mx-auto mont font mt-10 text-8xl"
         >
           22
@@ -41,6 +40,7 @@
         <div
           data-aos="fade-left"
           data-aos-delay="550"
+          data-aos-duration="1000"
           class="flex pinyon mx-auto mont mt-10 text-8xl"
         >
           08
@@ -49,38 +49,54 @@
         <div
           data-aos="fade-right"
           data-aos-delay="650"
+          data-aos-duration="1000"
           class="flex pinyon mx-auto mont mt-10 text-8xl"
         >
           25
         </div>
         <div
-          data-aos="fade-up"
+          data-aos="fade-left"
           data-aos-delay="850"
-          class="flex mont text-gray-600 text-2xl mt-20 mx-auto text-center"
+          data-aos-duration="1000"
+          class="flex cormor text-gray-600 text-2xl mt-20 mx-auto text-center"
         >
           ДО ВСТРЕЧИ НА ТОРЖЕСТВЕ
         </div>
         <div
-          data-aos="fade-up"
-          data-aos-delay="850"
-          class="flex mont text-gray-600 font-bold text-2xl mt-[100px] mx-auto text-center"
+          data-aos="flip-right"
+          data-aos-delay="950"
+          data-aos-duration="1000"
+          class="flex cormor text-gray-600 font-bold text-3xl mt-20 mx-auto text-center"
         >
           АЛЕКСЕЙ & ЛЮБОВЬ
         </div>
       </div>
-      <div  class="flex flex-col h-screen">
-        <div data-aos="fade-right"
-        data-aos-delay="650" class="flex pinyon text-gray-600 font-bold text-2xl pt mx-auto text-center">
+      <div class="flex flex-col h-screen">
+        <div
+          data-aos="fade-right"
+          data-aos-delay="650"
+          class="cormor flex pinyon text-gray-600 font-weight-800 text-2xl pt mx-auto text-center"
+        >
           ДОРОГИЕ ДРУЗЬЯ И РОДНЫЕ!
         </div>
-        <div class="div border-b mt-10 border-[1.5px] mx-[100px] border-gray-400"></div>
-        <div data-aos="fade-left"
-        data-aos-delay="650" class="flex mont  mt-10 text-gray-600 text-xl pt mx-auto text-center">
-          C огромным волнением и радостью приглашаем Вас разделить с нами этот особенный день - нашу свадьбу!
+        <div
+          class="div border-b mt-10 border-[1.5px] mx-[100px] border-gray-400"
+        ></div>
+        <div
+          data-aos="fade-left"
+          data-aos-delay="650"
+          class="flex mont mt-10 text-gray-600 text-xl pt mx-auto text-center"
+        >
+          C огромным волнением и радостью приглашаем Вас разделить с нами этот
+          особенный день - нашу свадьбу!
         </div>
-        <div data-aos="fade-right"
-        data-aos-delay="650" class="flex mont  mt-10 text-gray-600 text-xl pt mx-auto text-center">
-         Это будет незабываемое событие,<br> и мы хотим, чтобы вы стали его частью.
+        <div
+          data-aos="fade-right"
+          data-aos-delay="650"
+          class="flex mont mt-10 text-gray-600 text-xl pt mx-auto text-center"
+        >
+          Это будет незабываемое событие,<br />
+          и мы хотим, чтобы вы стали его частью.
         </div>
       </div>
     </div>
@@ -94,6 +110,9 @@
       }
       .pinyon {
         font-family: "Bodoni Moda", cursive;
+      }
+      .cormor{
+        font-family: "Cormorant Garamond", serif;
       }
     </style>
   </body>
