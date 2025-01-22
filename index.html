@@ -71,7 +71,7 @@
           АЛЕКСЕЙ & ЛЮБОВЬ
         </div>
       </div>
-      <div class="flex flex-col h-screen">
+      <div class="flex flex-col h-full">
         <div
           data-aos="fade-right"
           data-aos-delay="650"
@@ -106,23 +106,125 @@
         >
           ДО СВАДЬБЫ ОСТАЛОСЬ
         </div>
-        <div class="flex cormor flex-row justify-between">
+        <!-- ТАЙМЕР ДО СВАДЬБЫ -->
+        <div class="flex cormor flex-row space-x-6 mx-auto mt-10">
           <div class="flex flex-col text-center">
-            <div class="text-7xl" id="days"></div>
+            <div class="text-6xl pinyon block" id="days"></div>
             ДНЕЙ
           </div>
           <div class="flex flex-col text-center">
-            <div class="text-7xl" id="hours">123</div>
+            <div class="text-6xl pinyon block" id="hours"></div>
             ЧАСОВ
           </div>
           <div class="flex flex-col text-center">
-            <div class="text-7xl" id="minutes">123</div>
+            <div class="text-6xl pinyon block" id="minutes"></div>
             МИНУТ
           </div>
           <div class="flex flex-col text-center">
-            <div class="text-7xl" id="seconds">123</div>
+            <div class="text-6xl pinyon block" id="seconds"></div>
             СЕКУНД
           </div>
+        </div>
+        <div
+          class="cormor flex pinyon text-gray-600 font-weight-800 text-2xl pt mt-10 mx-auto text-center"
+        >
+          ПРОГРАММА ДНЯ
+        </div>
+        <div class="flex flex-col space-y-8 mt-10">
+          <!-- 12;00 -->
+          <div class="flex flex-row space-x-6">
+            <div class="text-6xl text-gray-400">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div
+              data-aos="fade-left"
+              data-aos-delay="650"
+              data-aos-duration="1000"
+              class="text-3xl pinyon flex-col"
+            >
+              <div class="pinyon">12:00</div>
+              <div class="cormor font-bold">Сбор гостей</div>
+              <div class="cormor text-sm">
+                Просим взять с собой хорошее настроение и ваши улыбки
+              </div>
+            </div>
+          </div>
+          <!-- 12;30 -->
+          <div class="flex flex-row space-x-6">
+            <div class="text-6xl text-gray-400">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div
+              data-aos="fade-left"
+              data-aos-delay="650"
+              data-aos-duration="1000"
+              class="text-3xl pinyon flex-col"
+            >
+              <div class="pinyon">12:30</div>
+              <div class="cormor font-bold">Свадебная церемония</div>
+              <div class="cormor text-sm">
+                Просим взять с собой хорошее настроение и ваши улыбки
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row space-x-6">
+            <div class="text-6xl text-gray-400">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div
+              data-aos="fade-left"
+              data-aos-delay="650"
+              data-aos-duration="1000"
+              class="text-3xl pinyon flex-col"
+            >
+              <div class="pinyon">16:00</div>
+              <div class="cormor font-bold">Праздничный банкет</div>
+              <div class="cormor text-sm">
+                Просим взять с собой хорошее настроение и ваши улыбки
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row space-x-6">
+            <div class="text-6xl text-gray-400">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div
+              data-aos="fade-left"
+              data-aos-delay="650"
+              data-aos-duration="1000"
+              class="text-3xl pinyon flex-col"
+            >
+              <div class="pinyon">23:00</div>
+              <div class="cormor font-bold">Окончание мероприятия</div>
+              <div class="cormor text-sm">
+                Просим взять с собой хорошее настроение и ваши улыбки
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex cormor text-gray-600 text-2xl mt-20 mx-auto text-center underline underline-offset-8"
+        >
+          ЛОКАЦИЯ
+        </div>
+        <div class="flex flex-col mx-auto mt-10">
+          <div class="mont mx-auto">Шатер «Море»</div>
+          <img src="img/XXXL.webp" class="mt-5" alt="" />
+          <div class="mont mx-auto">
+            Нижегородская область, Городецкий муниципальный округ, сельский
+            посёлок Турбазы
+          </div>
+        </div>
+        <div
+          class="flex cormor text-gray-600 text-2xl mt-20 mx-auto text-center underline underline-offset-8"
+        >
+          КАК ДОБРАТЬСЯ?
+        </div>
+        <div class="mt-10">
+          <iframe class="w-full h-[400px]"
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab1449380a2d9675487b7d289ad50d11521340de19d1d4272454033056f642b17&amp;source=constructor"
+            frameborder="0"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -163,5 +265,13 @@
         font-family: "Cormorant Garamond", serif;
       }
     </style>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
