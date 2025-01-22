@@ -23,7 +23,7 @@
   </script>
   <body>
     <div class="flex flex-col p-5 h-full bg-gray-100">
-      <div class="flex flex-col h-screen">
+      <div class="flex flex-col h-screen w-full">
         <div class="flex cormor text-gray-600 text-2xl pt mx-auto text-center">
           ПРИГЛАШЕНИЕ <br />
           НА СВАДЬБУ
@@ -71,7 +71,7 @@
           АЛЕКСЕЙ & ЛЮБОВЬ
         </div>
       </div>
-      <div class="flex flex-col h-full">
+      <div class="flex flex-col h-full w-full">
         <div
           data-aos="fade-right"
           data-aos-once="true"
@@ -436,6 +436,9 @@
       AOS.init();
     </script>
     <style>
+      body {
+        overflow-x: hidden;
+      }
       .mont {
         font-family: "Montserrat", sans-serif;
       }
