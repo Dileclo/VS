@@ -107,10 +107,22 @@
           ДО СВАДЬБЫ ОСТАЛОСЬ
         </div>
         <div class="flex cormor flex-row justify-between">
-            <div class="flex flex-col text-center"><div class="text-7xl">123</div>ДНЕЙ</div>
-            <div class="flex flex-col text-center"><div class="text-7xl">123</div>ЧАСОВ</div>
-            <div class="flex flex-col text-center"><div class="text-7xl">123</div>МИНУТ</div>
-            <div class="flex flex-col text-center"><div class="text-7xl">123</div>СЕКУНД</div>
+          <div class="flex flex-col text-center">
+            <div class="text-7xl" id="days"></div>
+            ДНЕЙ
+          </div>
+          <div class="flex flex-col text-center">
+            <div class="text-7xl" id="hours">123</div>
+            ЧАСОВ
+          </div>
+          <div class="flex flex-col text-center">
+            <div class="text-7xl" id="minutes">123</div>
+            МИНУТ
+          </div>
+          <div class="flex flex-col text-center">
+            <div class="text-7xl" id="seconds">123</div>
+            СЕКУНД
+          </div>
         </div>
       </div>
     </div>
@@ -123,11 +135,18 @@
       var timer;
       function showRemaining() {
         var now = new Date();
+        var distance = end - now;
+
         var days = Math.floor(distance / _day);
         var hours = Math.floor((distance % _day) / _hour);
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
       }
+      timer = setInterval(showRemaining, 1000);
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
