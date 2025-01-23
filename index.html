@@ -26,9 +26,9 @@
       <div class="flex flex-col h-screen w-full">
         <div class="flex cormor text-gray-600 text-2xl pt mx-auto text-center">
           ПРИГЛАШЕНИЕ <br />
-          НА СВАДЬБУ
+          НА СВАДЬБУ 
         </div>
-
+        <div></div>
         <div
           data-aos="fade-right"
           data-aos-delay="450"
@@ -72,13 +72,13 @@
         </div>
       </div>
       <div class="flex flex-col h-full w-full">
+        
         <div
           data-aos="fade-right"
           data-aos-once="true"
           data-aos-delay="650"
           class="cormor flex pinyon text-gray-600 font-weight-800 text-2xl pt mx-auto text-center"
-        >
-          ДОРОГИЕ ДРУЗЬЯ И РОДНЫЕ!
+        >Уважаемые <div class="name"></div>
         </div>
         <div
           data-aos="flip-right"
@@ -410,6 +410,14 @@
       </div>
     </div>
     <script>
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("name");
+      const nameElement = document.querySelector(".name");
+      if (name) {
+        nameElement.textContent = name;
+      } else {
+        nameElement.textContent = "гость"; // Значение по умолчанию
+      }
       var end = new Date("08/22/2025 4:0 PM");
       var _second = 1000;
       var _minute = _second * 60;
