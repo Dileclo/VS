@@ -8,24 +8,47 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="hero"></div>
-    <div id="kids"></div>
+    <!-- 1 -->
+    <div
+      class="h-screen w-full flex flex-col bg-[url('img/bg1.JPG')] p-5 bg-cover bg-no-repeat"
+    >
+      <div class="flex">
+        <div class="flex ml-auto flex-col">
+          <div>22</div>
+          <div>08</div>
+          <div>25</div>
+        </div>
+      </div>
+      <div
+        class="flex text-center flex-col mx-auto h-full mb-20 text-white justify-end"
+      >
+        <div>ЛЮБОВЬ</div>
+        <div>&</div>
+        <div>АЛЕКСЕЙ</div>
+      </div>
+    </div>
+    <!-- 2 -->
+    <div class="relative flex h-full rounded-t-3xl mt-[80px]">
+      <img src="img/bg.png" alt="">
+    </div>
+    <div class="mx-auto mt-10"><img src="" alt=""></div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      const loadHTML = (id, url) => {
-        fetch(url)
-          .then((response) => response.text())
-          .then((html) => (document.getElementById(id).innerHTML = html));
-      };
-      loadHTML('hero', 'hero.html');
-      loadHTML('kids', 'kids.html');
-      AOS.init();
+      AOS.init({
+        once: false,
+      });
     </script>
-    <style>
-      body {
-        overflow-x: hidden;
-        width: 100%;
-      }
-    </style>
   </body>
 </html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+  .pango{
+    font-family: 'Pangolin', cursive;
+  }
+  body {
+    background-color: #e5e7eb;
+    overflow-x: hidden;
+    width: 100%;
+  }
+</style>
