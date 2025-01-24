@@ -9,42 +9,77 @@
   </head>
   <body>
     <!-- 1 -->
-    <div
-      class="h-screen w-full flex flex-col bg-[url('img/bg1.JPG')] p-5 bg-cover bg-no-repeat"
-    >
-      <div class="flex">
-        <div class="flex ml-auto flex-col">
-          <div>22</div>
-          <div>08</div>
-          <div>25</div>
+    <div class="w-full overflow-x-hidden">
+      <div
+        class="h-screen w-full flex flex-col bg-[url('img/bg1.JPG')] p-5 bg-cover bg-no-repeat"
+      >
+        <div class="flex">
+          <div class="flex ml-auto flex-col">
+            <div>22</div>
+            <div>08</div>
+            <div>25</div>
+          </div>
+        </div>
+        <div
+          class="flex text-center flex-col mx-auto h-full mb-20 text-white justify-end"
+        >
+          <div>ЛЮБОВЬ</div>
+          <div>&</div>
+          <div>АЛЕКСЕЙ</div>
         </div>
       </div>
-      <div
-        class="flex text-center flex-col mx-auto h-full mb-20 text-white justify-end"
-      >
-        <div>ЛЮБОВЬ</div>
-        <div>&</div>
-        <div>АЛЕКСЕЙ</div>
+      <!-- 2 -->
+      <div class="relative flex w-full h-full rounded-t-3xl mt-[80px]">
+        <img data-aos="fade-right" class="" src="img/al/alex1.png" alt="" />
+        <img
+          data-aos="fade-left"
+          class="absolute left-1/2 top-[50px]"
+          src="img/al/l1.png"
+          alt=""
+        />
+        <img
+          src="img/lm.png"
+          class="w-1/2 h-1/2 absolute top-[200px] left-[30px]"
+          alt=""
+        />
       </div>
+      <div class="mx-auto mt-36">
+        <img src="img/div.png" class="mx-auto" alt="" />
+      </div>
+      <div class="mt-10 mx-auto text-2xl pango text-center">
+        Узнали этих детишек?)
+      </div>
+      <div class="mt-5 pango px-5 text-center mx-auto">
+        Как же быстро летит время! Мы так счастливы, что нашли друг друга!Мы
+        будем счастливы разделить с Вами радость неповторимого для нас дня – дня
+        нашей свадьбы! Приглашаем присоединиться к нашему празднику и украсить
+        его своим присутствием!
+      </div>
+      <div class="mx-auto mt-10">
+        <img src="img/div.png" class="mx-auto rotate-180" alt="" />
+      </div>
+      <div class="mt-10 mx-auto px-10">
+        <img src="img/img1.png" alt="" />
+      </div>
+      <div class="mt-10"></div>
     </div>
-    <!-- 2 -->
-    <div class="relative flex h-full rounded-t-3xl mt-[80px]">
-      <img src="img/bg.png" alt="">
-    </div>
-    <div class="mx-auto mt-10"><img src="" alt=""></div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({
-        once: false,
+        duration: 1000,
+        once: true,
       });
     </script>
   </body>
 </html>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
-  .pango{
-    font-family: 'Pangolin', cursive;
+  @import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+  .pango {
+    font-family: "Pangolin", cursive;
+  }
+  .container-snap::-webkit-scrollbar {
+    display: none;
   }
   body {
     background-color: #e5e7eb;
