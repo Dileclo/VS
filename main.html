@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- 1 -->
-    <div class="w-full overflow-x-hidden">
+    <div class="w-full flex-col overflow-x-hidden">
       <div
         class="h-screen w-full flex flex-col bg-[url('img/bg1.JPG')] p-5 bg-cover bg-no-repeat"
       >
@@ -61,10 +61,95 @@
       <div class="mt-10 mx-auto px-10">
         <img src="img/img1.png" alt="" />
       </div>
-      <div class="mt-10"></div>
+      <div class="mt-10">
+        <div class="text-center">РОДНЫЕ И ЛЮБИМЫЕ</div>
+      </div>
+      <div class="mt-10">
+        <div class="text-center">
+          Хотим, чтобы вы разделили с нами радость и были на торжестве в самый
+          лучший и трогательный день в нашей жизни!
+        </div>
+      </div>
+      <div class="mt-10">
+        <div class="text-center">27.07.2024</div>
+      </div>
+      <div class="mt-5">
+        <div class="text-center">
+          Мы будем безумно рады видеть вас в кругу наших гостей!
+        </div>
+      </div>
+      <div class="mt-5">
+        <div class="text-center">АЛЕКСЕЙ & ЛЮБОВЬ</div>
+      </div>
+      <div data-aos="fade-left" class="mt-10">
+        <div class="text-center">ДО НАШЕЙ СВАДЬБЫ ОСТАЛОСЬ</div>
+      </div>
+      <div class="flex space-x-6 text-center justify-center mt-10">
+        <div class="flex flex-col text-center">
+          <div class="text-5xl pinyon block rounded-xl" id="days"></div>
+          ДНЕЙ
+        </div>
+        <div class="flex flex-col text-center">
+          <div class="text-5xl pinyon block" id="hours"></div>
+          ЧАСОВ
+        </div>
+        <div class="flex flex-col text-center">
+          <div class="text-5xl pinyon block" id="minutes"></div>
+          МИНУТ
+        </div>
+        <div class="flex flex-col text-center">
+          <div class="text-5xl pinyon block" id="seconds"></div>
+          СЕКУНД
+        </div>
+      </div>
+    </div>
+    <div class="bg-blue-200 rounded-t-[50px] p-5 mt-10">
+      <div data-aos="fade-left" class="pt-10">
+        <div class="text-center">МЕСТО ПРОВЕДЕНИЯ</div>
+      </div>
+      <div class="mt-10">
+        <div class="text-center">Шатер "Море"</div>
+      </div>
+      <div class="mt-10 mx-auto">
+        <div class="text-center px-5">
+          <img class="rounded-xl" src="img/XXXL.webp" alt="" />
+        </div>
+      </div>
+      <div class="mt-10 px-5">
+        <iframe
+          class="w-full h-[400px] border"
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab1449380a2d9675487b7d289ad50d11521340de19d1d4272454033056f642b17&amp;source=constructor"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="mt-10 mx-auto">
+        <div class="text-center px-10">
+          ТАЙМИНГ ДНЯ
+        </div>
+      </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+      var end = new Date("08/22/2025 4:0 PM");
+      var _second = 1000;
+      var _minute = _second * 60;
+      var _hour = _minute * 60;
+      var _day = _hour * 24;
+      var timer;
+      function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+      }
+      timer = setInterval(showRemaining, 1000);
       AOS.init({
         duration: 1000,
         once: true,
