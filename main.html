@@ -10,6 +10,7 @@
   <body>
     <div class="w-full flex-col overflow-x-hidden">
       <div
+      style="background-attachment: scroll; background-position: 50% calc(50% + var(--scroll-y));"
         class="shadow h-screen w-full flex flex-col bg-[url('img/bg1.JPG')] bg-bottom rounded-b-[50px] p-5 bg-cover bg-no-repeat"
       >
       <div></div>
@@ -305,6 +306,9 @@
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+       window.addEventListener('scroll', () => {
+    document.documentElement.style.setProperty('--scroll-y', `${window.scrollY * 0.5}px`);
+  });
       var end = new Date("08/22/2025 4:0 PM");
       var _second = 1000;
       var _minute = _second * 60;
