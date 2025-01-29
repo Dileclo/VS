@@ -6,15 +6,16 @@
     <title>Приглашение на свадьбу</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="w-full flex-col overflow-x-hidden">
       <div
-        class="relative shadow h-screen w-full flex flex-col rounded-b-[50px] p-5 overflow-hidden"
+        class="relative shadow h-screen w-full flex flex-col  p-5 overflow-hidden clip-custom"
       >
         <!-- Фон для параллакса -->
         <div
-          class="absolute top-0 left-0 w-full h-[150%] bg-[url('img/bg1.JPG')] bg-cover bg-center z-[-1]"
+          class="absolute top-0 left-0 w-full h-[150%] bg-[url('img/bg1.JPG')] shadow bg-cover bg-center z-[-1]"
           id="parallax-bg"
         ></div>
 
@@ -166,8 +167,8 @@
           </div>
         </div>
       </div>
-      <div class="w-full bg-[#D6E1F0] rounded-t-[50px]">
-        <div class="bg-[#D6E1F0] rounded-t-[50px] p-5 mt-10">
+      <div class="w-full bg-[#D6E1F0] rounded-t-[50px] ">
+        <div class="bg-[#D6E1F0] rounded-t-[50px] p-5 mt-10 clip-custom-b">
           <div data-aos="fade-right" data-aos-delay="650" class="pt-10">
             <div class="text-center pacifico-regular text-2xl">
               Место проведения
@@ -373,109 +374,6 @@
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      const parallaxBg = document.getElementById("parallax-bg");
-
-      // Обновляем позицию фона при прокрутке
-      window.addEventListener("scroll", () => {
-        const offset = window.pageYOffset;
-        parallaxBg.style.transform = `translateY(${offset * 0.5}px)`; // Коэффициент 0.3 настраивает скорость параллакса
-      });
-      var end = new Date("08/22/2025 4:0 PM");
-      var _second = 1000;
-      var _minute = _second * 60;
-      var _hour = _minute * 60;
-      var _day = _hour * 24;
-      var timer;
-      function showRemaining() {
-        var now = new Date();
-        var distance = end - now;
-
-        var days = Math.floor(distance / _day);
-        var hours = Math.floor((distance % _day) / _hour);
-        var minutes = Math.floor((distance % _hour) / _minute);
-        var seconds = Math.floor((distance % _minute) / _second);
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-      }
-      timer = setInterval(showRemaining, 1000);
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach((p) => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-          ctx.fill();
-          p.x += p.dx;
-          p.y += p.dy;
-
-          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-        });
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-
-      window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
-
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
-  @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400..700&family=Pangolin&display=swap");
-  .mont {
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .pacifico-regular {
-    font-family: "Pacifico", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .pango {
-    font-family: "Pangolin", cursive;
-  }
-  body {
-    font-family: "Montserrat", sans-serif;
-  }
-  .container-snap::-webkit-scrollbar {
-    display: none;
-  }
-  .tab {
-    position: relative;
-
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-topright: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  body {
-    background-color: #e5e7eb;
-    overflow-x: hidden;
-    width: 100%;
-  }
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-  }
-</style>

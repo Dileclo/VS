@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400..700&family=Pangolin&display=swap");
+
+.clip-custom {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
+}
+
+.clip-custom-t {
+    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
+
+}
+
+.mont {
+    font-family: "Montserrat", sans-serif;
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pango {
+    font-family: "Pangolin", cursive;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.container-snap::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    position: relative;
+
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+body {
+    background-color: #e5e7eb;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
