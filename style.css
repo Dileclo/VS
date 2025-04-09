@@ -3,6 +3,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400..700&family=Pangolin&display=swap");
 
+
+
 .clip-custom {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
 }
@@ -49,7 +51,7 @@ body {
 }
 
 body {
-    background-color: #e5e7eb;
+    background-color: #e5e7eb62;
     overflow-x: hidden;
     width: 100%;
 }
