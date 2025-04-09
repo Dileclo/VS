@@ -34,3 +34,12 @@ const parallaxBg = document.getElementById("parallax-bg");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       });
+
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("name");
+      const nameElement = document.querySelector(".name");
+      if (name) {
+        nameElement.textContent = name;
+      } else {
+        nameElement.textContent = "гость"; // Значение по умолчанию
+      }
