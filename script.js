@@ -36,13 +36,15 @@ window.addEventListener("resize", () => {
 });
 
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
-const nameElement = document.querySelector(".name");
-if (name) {
-  nameElement.textContent = name;
-} else {
-  nameElement.textContent = ""; // Значение по умолчанию
-}
+const fm_name = params.get("fm_name");
+const f_name = params.get("f_name");
+const s_name = params.get("s_name");
+const fm_nameElement = document.querySelector(".fm_name");
+const f_nameElement = document.querySelector(".f_name");
+const s_nameElement = document.querySelector(".s_name");
+fm_nameElement.textContent = fm_name;
+f_nameElement.textContent = f_name;
+s_nameElement.textContent = s_name;
 
 function sendDataToTelegram(formData) {
   const botToken = "7961086542:AAHloHy2cruYJomIDBFdbct7rHOJKuDWS2Q";
