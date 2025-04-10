@@ -41,7 +41,7 @@ const nameElement = document.querySelector(".name");
 if (name) {
   nameElement.textContent = name;
 } else {
-  nameElement.textContent = "гость"; // Значение по умолчанию
+  nameElement.textContent = ""; // Значение по умолчанию
 }
 
 function sendDataToTelegram(formData) {
