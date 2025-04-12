@@ -37,20 +37,38 @@ window.addEventListener("resize", () => {
 
 const params = new URLSearchParams(window.location.search);
 const fm_name = params.get("fm_name");
-const f_name = params.get("f_name");
-const s_name = params.get("s_name");
-const fm_nameElement = document.querySelector(".fm_name");
-const f_nameElement = document.querySelector(".f_name");
-const s_nameElement = document.querySelector(".s_name");
-const and = document.querySelector(".and");
-if (s_name==="") {
-  and.textContent = "";
-}else{
-  and.textContent = "и";
+
+// Показываем фамилию отдельно
+const fmNameElement = document.querySelector(".fm_name");
+const prevent = document.querySelector(".prevent");
+if (fmNameElement && fm_name) {
+  fmNameElement.textContent = fm_name;
 }
-fm_nameElement.textContent = fm_name;
-f_nameElement.textContent = f_name;
-s_nameElement.textContent = s_name;
+const names = [
+  params.get("f_name"),
+  params.get("s_name"),
+  params.get("t_name"),
+  params.get("fe_name"),
+].filter(Boolean); // убираем пустые значения
+if (names.length === 1){
+  prevent.textContent = "Родная и Любимая";
+}else{
+  prevent.textContent = "Родные и Любимые";
+}
+function formatNames(names) {
+  if (names.length === 1) return names[0];
+  if (names.length === 2) return `${names[0]} и ${names[1]}`;
+  const last = names.pop();
+  return `${names.join(", ")} и ${last}`;
+}
+
+const formattedNames = formatNames(names);
+
+// Вставим в элемент
+const nameElement = document.querySelector(".guest-names");
+if (nameElement) {
+  nameElement.textContent = formattedNames;
+}
 
 function sendDataToTelegram(formData) {
   const botToken = "7961086542:AAHloHy2cruYJomIDBFdbct7rHOJKuDWS2Q";
