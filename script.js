@@ -5,12 +5,14 @@ window.addEventListener("scroll", () => {
   const offset = window.pageYOffset;
   parallaxBg.style.transform = `translateY(${offset * 0.5}px)`; // Коэффициент 0.3 настраивает скорость параллакса
 });
+
 var end = new Date("08/22/2025 4:0 PM");
 var _second = 1000;
 var _minute = _second * 60;
 var _hour = _minute * 60;
 var _day = _hour * 24;
 var timer;
+
 function showRemaining() {
   var now = new Date();
   var distance = end - now;
@@ -24,6 +26,7 @@ function showRemaining() {
   document.getElementById("minutes").innerHTML = minutes;
   document.getElementById("seconds").innerHTML = seconds;
 }
+
 timer = setInterval(showRemaining, 1000);
 AOS.init({
   duration: 1000,
@@ -70,18 +73,9 @@ const guests = [
 const prevent = document.querySelector(".prevent");
 prevent.textContent = guests.length === 1 ? "Родная и Любимая" : "Родные и Любимые";
 
-// Проверяем: 2 человека с разными фамилиями?
-let showSurnames = false;
-if (guests.length === 2) {
-  const [a, b] = guests;
-  if (a.surname && b.surname && a.surname !== b.surname) {
-    showSurnames = true;
-  }
-}
-
-// Формируем имена
+// Формируем имена с фамилиями
 const formattedNames = guests.map(g => {
-  if (showSurnames && g.surname) {
+  if (g.surname) {
     return `${g.name} ${g.surname}`;
   } else {
     return g.name;
@@ -104,16 +98,20 @@ if (nameElement) {
   nameElement.textContent = finalText;
 }
 
-
-
+// Функция отправки данных в Telegram
 function sendDataToTelegram(formData) {
   const botToken = "7961086542:AAHloHy2cruYJomIDBFdbct7rHOJKuDWS2Q";
   const chatId = "628229833";
   const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
+  // Формируем строку с именами и фамилиями
+  const guestsList = formData.guests.map(g => {
+    return g.surname ? `${g.name} ${g.surname}` : g.name;
+  }).join(", ");
+
   const message = `
 📩 Новая анкета гостя:
-<b>Имя:</b> ${formData.name}
+<b>Гости:</b> ${guestsList}
 <b>Присутствие:</b> ${formData.prisutstvie}
 <b>Трансфер:</b> ${formData.transfer}
 `;
@@ -133,20 +131,35 @@ function sendDataToTelegram(formData) {
   }).then((response) => response.json());
 }
 
+// Обработка формы
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const params = new URLSearchParams(window.location.search);
-  const name = params.get("name");
-  const prisutstvie = document.querySelector(
-    "input[name='prisutstvie']:checked"
-  )?.value;
-  const transfer = document.querySelector(
-    "input[name='transfer']:checked"
-  )?.value;
+  const guests = [
+    {
+      name: params.get("f_name"),
+      surname: params.get("f_surname"),
+    },
+    {
+      name: params.get("s_name"),
+      surname: params.get("s_surname"),
+    },
+    {
+      name: params.get("t_name"),
+      surname: params.get("t_surname"),
+    },
+    {
+      name: params.get("fe_name"),
+      surname: params.get("fe_surname"),
+    },
+  ].filter(g => g.name); // Убираем гостей без имени
+
+  const prisutstvie = document.querySelector("input[name='prisutstvie']:checked")?.value;
+  const transfer = document.querySelector("input[name='transfer']:checked")?.value;
 
   const formData = {
-    name,
+    guests,
     prisutstvie,
     transfer,
   };
