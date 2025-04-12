@@ -36,25 +36,59 @@ window.addEventListener("resize", () => {
 });
 
 const params = new URLSearchParams(window.location.search);
+
+// Общая фамилия (если есть)
 const fm_name = params.get("fm_name");
 
-// Показываем фамилию отдельно
+// Элемент для отдельного отображения фамилии
 const fmNameElement = document.querySelector(".fm_name");
-const prevent = document.querySelector(".prevent");
 if (fmNameElement && fm_name) {
   fmNameElement.textContent = fm_name;
 }
-const names = [
-  params.get("f_name"),
-  params.get("s_name"),
-  params.get("t_name"),
-  params.get("fe_name"),
-].filter(Boolean); // убираем пустые значения
-if (names.length === 1){
-  prevent.textContent = "Родная и Любимая";
-}else{
-  prevent.textContent = "Родные и Любимые";
+
+// Получаем имена и (возможно) индивидуальные фамилии
+const guests = [
+  {
+    name: params.get("f_name"),
+    surname: params.get("f_surname"),
+  },
+  {
+    name: params.get("s_name"),
+    surname: params.get("s_surname"),
+  },
+  {
+    name: params.get("t_name"),
+    surname: params.get("t_surname"),
+  },
+  {
+    name: params.get("fe_name"),
+    surname: params.get("fe_surname"),
+  },
+].filter(g => g.name); // Убираем тех, у кого нет имени
+
+// Определим текст "Родная и любимая" или "Родные и любимые"
+const prevent = document.querySelector(".prevent");
+prevent.textContent = guests.length === 1 ? "Родная и Любимая" : "Родные и Любимые";
+
+// Проверяем: 2 человека с разными фамилиями?
+let showSurnames = false;
+if (guests.length === 2) {
+  const [a, b] = guests;
+  if (a.surname && b.surname && a.surname !== b.surname) {
+    showSurnames = true;
+  }
 }
+
+// Формируем имена
+const formattedNames = guests.map(g => {
+  if (showSurnames && g.surname) {
+    return `${g.name} ${g.surname}`;
+  } else {
+    return g.name;
+  }
+});
+
+// Форматируем финальную строку с "и"
 function formatNames(names) {
   if (names.length === 1) return names[0];
   if (names.length === 2) return `${names[0]} и ${names[1]}`;
@@ -62,13 +96,15 @@ function formatNames(names) {
   return `${names.join(", ")} и ${last}`;
 }
 
-const formattedNames = formatNames(names);
+const finalText = formatNames(formattedNames);
 
-// Вставим в элемент
+// Показываем на странице
 const nameElement = document.querySelector(".guest-names");
 if (nameElement) {
-  nameElement.textContent = formattedNames;
+  nameElement.textContent = finalText;
 }
+
+
 
 function sendDataToTelegram(formData) {
   const botToken = "7961086542:AAHloHy2cruYJomIDBFdbct7rHOJKuDWS2Q";
