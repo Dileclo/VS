@@ -42,6 +42,12 @@ const s_name = params.get("s_name");
 const fm_nameElement = document.querySelector(".fm_name");
 const f_nameElement = document.querySelector(".f_name");
 const s_nameElement = document.querySelector(".s_name");
+const and = document.querySelector(".and");
+if (s_name==="") {
+  and.textContent = "";
+}else{
+  and.textContent = "и";
+}
 fm_nameElement.textContent = fm_name;
 f_nameElement.textContent = f_name;
 s_nameElement.textContent = s_name;
