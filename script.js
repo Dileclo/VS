@@ -103,15 +103,14 @@ function sendDataToTelegram(formData) {
   const botToken = "7961086542:AAHloHy2cruYJomIDBFdbct7rHOJKuDWS2Q";
   const chatId = "628229833";
   const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-  // Формируем строку с именами и фамилиями
+  console.log(formData);
   const guestsList = formData.guests.map(g => {
-    return g.surname ? `${g.name} ${g.surname}` : g.name;
+    return g.surname ? `${g.name} ${g.surname} ${g.fm_name}` : g.name;
   }).join(", ");
 
   const message = `
 📩 Новая анкета гостя:
-<b>Гости:</b> ${guestsList}
+<b>Гости:</b> ${guestsList},${formData.fm_name}
 <b>Присутствие:</b> ${formData.prisutstvie}
 <b>Трансфер:</b> ${formData.transfer}
 `;
@@ -136,6 +135,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const params = new URLSearchParams(window.location.search);
+  const fm_name = params.get("fm_name");
   const guests = [
     {
       name: params.get("f_name"),
@@ -159,6 +159,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   const transfer = document.querySelector("input[name='transfer']:checked")?.value;
 
   const formData = {
+    fm_name,
     guests,
     prisutstvie,
     transfer,
