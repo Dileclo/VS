@@ -67,15 +67,14 @@ const guests = [
     name: params.get("fe_name"),
     surname: params.get("fe_surname"),
   },
-].filter((g) => g.name); // Убираем тех, у кого нет имени
+].filter(g => g.name); // Убираем тех, у кого нет имени
 
 // Определим текст "Родная и любимая" или "Родные и любимые"
 const prevent = document.querySelector(".prevent");
-prevent.textContent =
-  guests.length === 1 ? "Родная и Любимая" : "Родные и Любимые";
+prevent.textContent = guests.length === 1 ? "Родная и Любимая" : "Родные и Любимые";
 
 // Формируем имена с фамилиями
-const formattedNames = guests.map((g) => {
+const formattedNames = guests.map(g => {
   if (g.surname) {
     return `${g.name} ${g.surname}`;
   } else {
@@ -99,37 +98,6 @@ if (nameElement) {
   nameElement.textContent = finalText;
 }
 
-function formatGuestList(guests) {
-  if (guests.length === 1) {
-    const g = guests[0];
-    return g.surname ? `${g.name} ${g.surname}` : g.name;
-  }
-
-  const surnames = guests.map((g) => g.surname).filter(Boolean);
-  const uniqueSurnames = [...new Set(surnames)];
-
-  if (uniqueSurnames.length === 1 && uniqueSurnames[0]) {
-    // Все с одной фамилией
-    const names = guests.map((g) => g.name);
-    return `${uniqueSurnames[0]} ${formatNames(names)}`;
-  } else if (guests.length === 2 && guests.every((g) => g.surname)) {
-    // Два человека с разными фамилиями
-    return `${guests[0].name} ${guests[0].surname} и ${guests[1].name} ${guests[1].surname}`;
-  } else {
-    // Разные фамилии
-    return formatNames(
-      guests.map((g) => (g.surname ? `${g.name} ${g.surname}` : g.name))
-    );
-  }
-}
-
-function formatNames(names) {
-  if (names.length === 1) return names[0];
-  if (names.length === 2) return `${names[0]} и ${names[1]}`;
-  const last = names.pop();
-  return `${names.join(", ")} и ${last}`;
-}
-
 // Функция отправки данных в Telegram
 function sendDataToTelegram(formData) {
   const botToken = "7961086542:AAHloHy2cruYJomIDBFdbct7rHOJKuDWS2Q";
@@ -137,13 +105,16 @@ function sendDataToTelegram(formData) {
   const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
   // Формируем строку с именами и фамилиями
-  const guestsList = formatGuestList(formData.guests);
+  const guestsList = formData.guests.map(g => {
+    return g.surname ? `${g.name} ${g.surname}` : g.name;
+  }).join(", ");
+
   const message = `
-  📩 Новая анкета гостя:
-  <b>Гости:</b> ${guestsList}
-  <b>Присутствие:</b> ${formData.prisutstvie}
-  <b>Трансфер:</b> ${formData.transfer}
-  `;
+📩 Новая анкета гостя:
+<b>Гости:</b> ${guestsList}
+<b>Присутствие:</b> ${formData.prisutstvie}
+<b>Трансфер:</b> ${formData.transfer}
+`;
 
   const params = {
     chat_id: chatId,
@@ -182,14 +153,10 @@ document.querySelector("form").addEventListener("submit", (e) => {
       name: params.get("fe_name"),
       surname: params.get("fe_surname"),
     },
-  ].filter((g) => g.name); // Убираем гостей без имени
+  ].filter(g => g.name); // Убираем гостей без имени
 
-  const prisutstvie = document.querySelector(
-    "input[name='prisutstvie']:checked"
-  )?.value;
-  const transfer = document.querySelector(
-    "input[name='transfer']:checked"
-  )?.value;
+  const prisutstvie = document.querySelector("input[name='prisutstvie']:checked")?.value;
+  const transfer = document.querySelector("input[name='transfer']:checked")?.value;
 
   const formData = {
     guests,
